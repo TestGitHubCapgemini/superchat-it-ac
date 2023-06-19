@@ -11,20 +11,46 @@ width : 100% !important;
 button#esw-fab{
 height:80px !important;
 width:80px !important;
-background-color: transparent !important;
 }
 button#esw-fab[aria-expanded="true"]{
 height: 56px !important;
 width: 56px !important;
-bottom: 16px !important;
+bottom: 16px;
 }
 .embedded-service #esw-fab.showAnimation{
-animation:channelmenu-rotate-in-2-br-cw 0.5s ease-in both,channelmenu-shadow-pulse 2s infinite !important;
+animation:channelmenu-rotate-in-2-br-cw 0.5s ease-in both,channelmenu-shadow-pulse 2s infinite;
 }
 .embedded-service .fab div[class="icon_fab_container"] {
-width: 68px !important;
-height: 68px !important;
-background-size: 70px 70px !important;
+width: 68px;
+height: 68px;
+background-size: 70px 70px;
+}
+
+button[embeddedService-chatHeader_chatHeader]{
+margin : 0em;
+position : static;
+padding : 1px 6px;
+color: white;
+}
+	
+button#esw-fab {
+	background-color: transparent;
+}
+/*h2[embeddedService-chatHeader_chatHeader]{
+color: white;
+font-size : 9px;
+}*/
+button.closeButton{
+margin : 0em;
+position : static;
+padding : 1px 6px;
+color: white;
+}
+button.minimizeButton{
+margin : 0em;
+position : static;
+padding : 1px 6px;
+color: white;
 }
 
 </style>
@@ -38,7 +64,7 @@ var initESW = function(gslbBaseURL) {
 			'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
 			gslbBaseURL,
 			'00D7Y000000EFvB',
-			'LU_LA_JAFAL'
+			'BE_AC_PCDO_NL'
 		);
 
 };
@@ -52,7 +78,8 @@ var isMobileDevice = regexp.test(details);
 if (isMobileDevice) {} else {
     console.log('inside desktop');
     var style = document.createElement('style');
-
+    style.innerHTML = 
+	'.embeddedServiceHelpButton .uiButton { height: 80px !important; min-width: 80px !important; width: 80px;}';
     style.innerHTML += 'li#esw-cta_3mi7Y0000000014{pointer-events : none;opacity :0.4;}';
     style.innerHTML += '.embedded-service .channelmenu_ctas > li:last-child{pointer-events : none;opacity :0.4;}';
     document.body.appendChild(style);
@@ -69,5 +96,6 @@ if (!window.embedded_svc || !window.embedded_svc.menu) {
     initESW('https://service.force.com');
 }
 </script>
+
 </body>
 </html>
