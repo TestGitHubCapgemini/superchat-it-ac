@@ -3,8 +3,8 @@
   <title>Chat de prueba</title>
 </head>
   <!-- Embedded Service <-> LWC Wrapper -->
-      <script>
-          window.addEventListener("message", () => {
+<script>
+          window.addEventListener("message", function(event) {
               var payload = event.data;
               if (payload && payload.type === "chasitor.sendMessage") {
                   embedded_svc.postMessage("chasitor.sendMessage", payload.message);
@@ -18,7 +18,7 @@
       <style type='text/css'>
         @import url('https://psa-customerfirst--preprod--c.sandbox.vf.force.com/resource/1670933538000/SnY_slds_mod_min_css/slds.min.css');
         .embeddedServiceHelpButton .helpButton .uiButton {
-          background-color: #005290;
+          background-color: transparent !important;
           font-family: "Arial", sans-serif;
         }
 
@@ -52,25 +52,25 @@
         }
 
        button.sidebarHeader.minimizedContainer.embeddedServiceSidebarMinimizedDefaultUI {
-            background-image: url('https://psa-customerfirst--preprod--c.sandbox.vf.force.com/resource/1683797322000/headset_icon_chatbot_abarth') !important;
-            background-position: center;
-            background-size: 70px;
-            background-repeat: no-repeat !important;
-            background-color: #5820D5 !important;
-            height: 70px !important;
-            width: 70px !important;
-            border-radius: 50% !important;
-            min-height: 60px !important;
-            min-width: 60px !important;
-            margin: 30px;
-            border-style: none;
-            box-shadow: none !important;
-        }
+		 background-image: url('https://www.peugeot.at/content/dam/omnichannel-aem/cross/livechat/headset_icon_chatbot_peugeot') !important;
+		 background-position: center;
+		 background-size: 70px;
+		 background-repeat: no-repeat !important;
+		 background-color: transparent !important;
+		 height: 70px !important;
+		 width: 70px !important;
+		 border-radius: 50% !important;
+		 min-height: 60px !important;
+		 min-width: 60px !important;
+		 margin: 30px;
+		 border-style: none;
+		 box-shadow: none !important;
+ }
 
         .embeddedServiceHelpButton .helpButton .uiButton{
-	    background-image: url('https://psa-customerfirst--preprod--c.sandbox.vf.force.com/resource/1683797322000/headset_icon_chatbot_abarth') !important;
+	    background-image: url('https://www.peugeot.at/content/dam/omnichannel-aem/cross/livechat/headset_icon_chatbot_peugeot') !important;
 	    background-position: center;
-	    background-color: #5820D5 !important;
+	    background-color: transparent !important;
 	    background-size: 50px;
 	    background-repeat: no-repeat !important;
 	    width: 40px !important;
@@ -108,7 +108,7 @@
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = 'fr'; //For example, enter 'en' or 'en-US'
+		embedded_svc.settings.language = 'de'; //For example, enter 'en' or 'en-US'
 
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
@@ -143,21 +143,20 @@
 				isOfflineSupportEnabled: false
 			}
 		);
+ };
 
-    };
 
- 
 
-    if (!window.embedded_svc) {
-        var s = document.createElement('script');
-        s.setAttribute('src', 'https://psa-customerfirst--preprod.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-        s.onload = function() {
-            initESW(null);
-        };
-        document.body.appendChild(s);
-    } else {
-        initESW('https://service.force.com');
-    }
+		 if (!window.embedded_svc) {
+			 var s = document.createElement('script');
+			 s.setAttribute('src', 'https://psa-customerfirst--preprod.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+			 s.onload = function() {
+			 initESW(null);
+			 };
+			 document.body.appendChild(s);
+		 } else {
+			 initESW('https://service.force.com');
+		 }
 </script>
 </body>
 </html>
