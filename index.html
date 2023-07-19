@@ -3,7 +3,40 @@
   <title>Chat de prueba</title>
 </head>
 <body>
- 
+<!-- Embedded Service <-> LWC Wrapper -->
+      <script>
+          window.addEventListener("message", function() {
+              var payload = event.data;
+              if (payload && payload.type === "chasitor.sendMessage") {
+                  embedded_svc.postMessage("chasitor.sendMessage", payload.message);
+              }
+          },
+              false
+          );
+      </script>
+
+<!-- Embedded Service ChatBot Styles -->
+      <style type='text/css'>
+        @import url('https://psa-customerfirst--preprod--c.sandbox.vf.force.com/resource/1670933538000/SnY_slds_mod_min_css/slds.min.css');
+        .embeddedServiceHelpButton .helpButton .uiButton {
+          background-color: #005290;
+          font-family: "Arial", sans-serif;
+        }
+
+        .embeddedServiceHelpButton .helpButton .uiButton {
+          /* background-color: #5820D5 !important;  */
+          font-family: "Salesforce Sans", sans-serif !important;
+        }
+
+        .embeddedServiceHelpButton .helpButton .uiButton:focus {
+         /* outline: 1px solid #5820D5 !important; */
+        }
+	      
+	      
+         @media only screen and (min-width: 48em) {
+	   .embeddedServiceHelpButton .helpButton .uiButton:hover::before,
+		 .embeddedServiceHelpButton .helpButton .uiButton:focus::before
+		 {
 		border-radius: 50% !important; 
 	     }
 	 }
