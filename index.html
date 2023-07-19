@@ -5,7 +5,7 @@
 <body>
 <!-- Embedded Service <-> LWC Wrapper -->
       <script>
-          window.addEventListener("message", function(event) => {
+          window.addEventListener("message", function(event)  {
               var payload = event.data;
               if (payload && payload.type === "chasitor.sendMessage") {
                   embedded_svc.postMessage("chasitor.sendMessage", payload.message);
