@@ -362,20 +362,12 @@
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
-		embedded_svc.init(
+		embedded_svc.menu.init(
 			'https://psa-customerfirst--dev01.sandbox.my.salesforce.com',
-			'https://psa-customerfirst--dev01.sandbox.my.site.com/opel',
+			'https://d.la1-c1cs-cdg.salesforceliveagent.com/chat',
 			gslbBaseURL,
 			'00D0D0000008ils',
-			'DE_OP_PCDO',
-			{
-				baseLiveAgentContentURL: 'https://c.la1-c1cs-cdg.salesforceliveagent.com/content',
-				deploymentId: '57269000000sXvc',
-				buttonId: '57369000000sXzF',
-				baseLiveAgentURL: 'https://d.la1-c1cs-cdg.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I7Y000000Kz0MUAS_188d32294d8',
-				isOfflineSupportEnabled: false
-			}
+			'DE_DS_PCDO'
 		);
 	};
 
