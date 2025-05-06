@@ -329,24 +329,50 @@
 	}
 </style>
 
-<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
-		// Required if you want labels in a language that’s different from your user’s context.
-		embedded_svc.menu.settings.language = 'it'; //For example, enter 'en' or 'en-US'
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = 'pt_PT'; //For example, enter 'en' or 'en-US'
 
-		embedded_svc.menu.init(
-			'https://psa-customerfirst--preprod.sandbox.my.salesforce.com',
-			'https://d.la12s-core1.sfdc-urlt2q.salesforceliveagent.com/chat',
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://psa-customerfirst--kang.sandbox.my.salesforce.com',
+			'https://psa-customerfirst--kang.sandbox.my.site.com/peugeot',
 			gslbBaseURL,
-			'00D1x000000KYSu',
-			'Bot_IT_AC'
+			'00DAP000009DWo5',
+			'PT_Peugeot_PCDO',
+			{
+				baseLiveAgentContentURL: 'https://c.la12s-core1.sfdc-urlt2q.salesforceliveagent.com/content',
+				deploymentId: '57269000000sXvg',
+				buttonId: '57369000000sXyc',
+				baseLiveAgentURL: 'https://d.la12s-core1.sfdc-urlt2q.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I0C000000Cae8UAC_1884f205c5c',
+				isOfflineSupportEnabled: false
+			}
 		);
 	};
 
-	if (!window.embedded_svc || !window.embedded_svc.menu) {
+	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'https://psa-customerfirst--preprod.sandbox.my.salesforce.com/embeddedservice/menu/fab.min.js');
+		s.setAttribute('src', 'https://psa-customerfirst--kang.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
